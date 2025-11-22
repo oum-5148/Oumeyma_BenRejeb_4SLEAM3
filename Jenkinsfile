@@ -10,7 +10,7 @@ pipeline {
 
            steps {
 
-               git branch: 'master',
+               git branch: 'main',
 
                url: ' https://github.com/oum-5148/Oumeyma_BenRejeb_4SLEAM3.git'
 
