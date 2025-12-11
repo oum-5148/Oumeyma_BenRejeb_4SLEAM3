@@ -8,7 +8,7 @@ pipeline {
 
     environment {
         DOCKERHUB_REPO = 'oumeyma5148/student-management'
-        DOCKER_CREDENTIALS_ID = 'jenkinsDocker'
+        DOCKER_CREDENTIALS_ID = '1939bbb7-18d8-4cac-881a-7c1b66df39e4'
         IMAGE_TAG = "${BUILD_NUMBER}"
     }
 
