@@ -34,6 +34,22 @@ pipeline {
             }
         }
 
+         stage('MVN SonarQube') {
+            environment {
+                SONAR_TOKEN = credentials('sonar-token')  
+            }
+            steps {
+                withSonarQubeEnv('sonarqube') { 
+                    sh """
+                        mvn sonar:sonar \
+                        -Dsonar.projectKey=OumeymaProject \
+                        -Dsonar.host.url=http://192.168.33.10:9000 \
+                        -Dsonar.login=$SONAR_TOKEN
+                    """
+                }
+            }
+        }
+        
         stage('Build Docker Image') {
             steps {
                 sh "docker build -t $DOCKERHUB_REPO:$IMAGE_TAG ."
